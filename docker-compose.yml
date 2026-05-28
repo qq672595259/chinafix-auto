@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  chinafix-auto:
+    build: .
+    container_name: chinafix-auto
+    volumes:
+      # 挂载配置目录，保持配置持久化
+      - ./data:/app/data
+    environment:
+      # 如果需要可以通过环境变量传递配置
+      - PYTHONUNBUFFERED=1
+    # 如果需要交互式运行（输入验证码等），取消注释下面的配置
+    # stdin_open: true
+    # tty: true
+    # 如果需要定时运行，可以使用 cron 或者外部调度器
